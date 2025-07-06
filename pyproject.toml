@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "api-startup"
+version = "1.0.0"
+description = "Exemplo de API completa que demostra dominio em DDD"
+authors = ["Emerson Silva"]
+license = "MIT 1.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+python-dotenv = "^1.1.1"
+fastapi = "^0.115.14"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
