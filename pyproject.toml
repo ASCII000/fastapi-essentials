@@ -5,13 +5,22 @@ description = "Exemplo de API completa que demostra dominio em DDD"
 authors = ["Emerson Silva"]
 license = "MIT 1.0"
 readme = "README.md"
+package-mode = false
+
 
 [tool.poetry.dependencies]
 python = "^3.13"
 python-dotenv = "^1.1.1"
 fastapi = "^0.115.14"
+sqlmodel = "^0.0.24"
+uvicorn = "^0.35.0"
+aiomysql = "^0.2.0"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.pylint]
+init-hook='sys.path.append("src")'
