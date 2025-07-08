@@ -5,7 +5,7 @@ Main module for run app
 from fastapi import FastAPI
 
 from setup import setup
-from dependencies.app_lifespan import lifespan
+from dependencies.lifespan import lifespan
 
 
 app = FastAPI(
