@@ -76,7 +76,7 @@ class Client(ClientBase, table=True):
     Client table
     """
     __tablename__="clientes"
-    
+
     id: Optional[int] = Field(default=None, primary_key=True)
 
 
