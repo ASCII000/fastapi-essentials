@@ -8,7 +8,7 @@ from typing import Optional, List
 from sqlmodel import SQLModel, Field, Relationship
 
 
-class CargoBase(SQLModel):
+class RoleBase(SQLModel):
     """
     Base class for role
     """
@@ -18,16 +18,17 @@ class CargoBase(SQLModel):
     criado_em: Optional[datetime] = None
 
 
-class Cargo(CargoBase, table=True):
+class Role(RoleBase, table=True):
     """
     Roles with permissions
     """
+    __tablename__="cargos_permissoes"
 
     id: Optional[int] = Field(default=None, primary_key=True)
-    permissoes: List["CargoPermissao"] = Relationship(back_populates="cargo")
+    permissoes: List["RolePermission"] = Relationship(back_populates="cargo")
 
 
-class PermissaoBase(SQLModel):
+class PermissionBase(SQLModel):
     """
     Base permissions of role
     """
@@ -37,16 +38,17 @@ class PermissaoBase(SQLModel):
     criado_em: datetime = Field(default_factory=datetime.utcnow)
 
 
-class Permissao(PermissaoBase, table=True):
+class Permission(PermissionBase, table=True):
     """
     Permissions of role
     """
+    __tablename__="permissoes"
 
     id: Optional[int] = Field(default=None, primary_key=True)
-    cargos: List["CargoPermissao"] = Relationship(back_populates="permissao")
+    cargos: List["RolePermission"] = Relationship(back_populates="permissao")
 
 
-class CargoPermissao(SQLModel, table=True):
+class RolePermission(SQLModel, table=True):
     """
     Role permissions
     """
@@ -54,8 +56,8 @@ class CargoPermissao(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     cargo_id: int = Field(foreign_key="cargo.id")
     permissao_id: int = Field(foreign_key="permissao.id")
-    cargo: Optional[Cargo] = Relationship(back_populates="permissoes")
-    permissao: Optional[Permissao] = Relationship(back_populates="cargos")
+    cargo: Optional[Role] = Relationship(back_populates="permissoes")
+    permissao: Optional[Permission] = Relationship(back_populates="cargos")
 
 
 class ClientBase(SQLModel):
