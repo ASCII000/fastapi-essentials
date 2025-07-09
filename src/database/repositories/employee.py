@@ -39,3 +39,12 @@ class EmployeeRepository:
             employee_id (int): Employee id
         """
         return await self.session.get(Employee, employee_id)
+
+    async def get_employee_by_email(self, email: str) -> Employee:
+        """
+        Get employee by email
+
+        Args:
+            email (str): Employee email
+        """
+        return await self.session.get(Employee, email)
