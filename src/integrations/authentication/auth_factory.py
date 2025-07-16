@@ -3,7 +3,7 @@ Factory for manager authentication
 """
 
 from .auth_interfaces import (
-    AuthenticationFactoryInterface,
+    AuthenticationProcessorcInterface,
     BaseLoginInputStrategy,
     LoginStrategies,
 )
@@ -11,7 +11,7 @@ from .auth_interfaces import (
 from .auth_models import JWTToken
 
 
-class AuthenticationFactory(AuthenticationFactoryInterface):
+class AuthenticationFactory(AuthenticationProcessorcInterface):
     """
     Factory for manager authentication
     """

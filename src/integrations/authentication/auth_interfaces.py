@@ -8,8 +8,8 @@ from abc import ABC, abstractmethod
 from pydantic import BaseModel, PrivateAttr
 
 from database.repositories import EmployeeRepository
-from utils.security import JWTManager
 from database.tables import Employee
+from utils.security import JWTManager
 from .auth_models import JWTToken
 
 
@@ -62,7 +62,7 @@ class PasswordLoginInputStrategyInterface(BaseLoginInputStrategy):
         return LoginStrategies.EMAIL_PASSWORD.value
 
 
-class AuthenticationFactoryInterface(ABC):
+class AuthenticationProcessorcInterface(ABC):
     """
     Class for manager authentication adapters
     """
