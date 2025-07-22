@@ -2,6 +2,6 @@
 Module for import repositories and manager db connection
 """
 
-from .employee import EmployeeRepository
+from .employee import EmployeeRepository, Employee
 
-__all__ = ["EmployeeRepository"]
+__all__ = ["EmployeeRepository", "Employee"]
